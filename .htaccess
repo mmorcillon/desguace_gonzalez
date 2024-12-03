@@ -1,0 +1,23 @@
+# Activar reescritura de URLs
+RewriteEngine On
+
+# Establecer el directorio raíz del proyecto
+RewriteBase /desguace/
+
+# Redirigir todo excepto archivos existentes (CSS, JS, imágenes) al index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/index.php [L]
+
+# Evitar el acceso a archivos sensibles
+<FilesMatch "\.(htaccess|htpasswd|config|env)$">
+    Require all denied
+</FilesMatch>
+
+# Configurar el índice predeterminado
+DirectoryIndex index.php
+
+# Activar compresión para mejorar el rendimiento
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
+</IfModule>
