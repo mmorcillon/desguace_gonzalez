@@ -39,7 +39,8 @@ switch ($page) {
     default:
         echo "Página no encontrada.";
         break;
-}
+} 
+//Comentario Miguel Morcillo Nuñez
 
 
 
