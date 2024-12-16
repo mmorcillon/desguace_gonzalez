@@ -40,3 +40,7 @@ switch ($page) {
         echo "Página no encontrada.";
         break;
 }
+
+
+
+
